@@ -5,11 +5,12 @@ from urllib.parse import urljoin, urlparse
 from pathlib import Path
 
 class WebDownloader:
-    def __init__(self, base_url):
+    def __init__(self, base_url, max_depth=5):
         self.base_url = base_url
         self.domain = urlparse(base_url).netloc
         self.visited = set()
         self.base_path = Path(self.domain)
+        self.max_depth = max_depth
 
     def download_page(self, url):
         """Download the content of a given URL."""
@@ -48,13 +49,13 @@ class WebDownloader:
             f.write(content)
         print(f"Saved: {file_path}")
 
-    def download_recursive(self, url):
+    def download_recursive(self, url, current_depth):
         """Recursively download pages from the given URL."""
-        if url in self.visited:
+        if url in self.visited or current_depth >= self.max_depth:
             return
         self.visited.add(url)
 
-        print(f"Downloading: {url}")
+        print(f"Downloading: {url} (Depth: {current_depth})")
         content = self.download_page(url)
         if content is None:
             return
@@ -63,15 +64,16 @@ class WebDownloader:
         links = self.parse_html(content, url)
 
         for link in links:
-            self.download_recursive(link)
+            self.download_recursive(link, current_depth + 1)
 
     def start_download(self):
         """Start the downloading process."""
         print(f"Starting download from: {self.base_url}")
-        self.download_recursive(self.base_url)
+        self.download_recursive(self.base_url, 0)
         print("Download complete!")
 
 if __name__ == "__main__":
     base_url = input("Enter the website URL to download: ")
-    downloader = WebDownloader(base_url)
+    max_depth = int(input("Enter the maximum depth for recursion (default is 5): ") or "5")
+    downloader = WebDownloader(base_url, max_depth)
     downloader.start_download()
