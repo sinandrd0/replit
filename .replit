@@ -15,6 +15,10 @@ author = "agent"
 task = "workflow.run"
 args = "Run Web Downloader"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "GitHub Push"
+
 [[workflows.workflow]]
 name = "Run Web Downloader"
 author = "agent"
@@ -25,6 +29,17 @@ agentRequireRestartOnSave = false
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "python web_downloader.py"
+
+[[workflows.workflow]]
+name = "GitHub Push"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "export GITHUB_TOKEN=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 && git remote remove origin && git remote add origin https://YOUR_GITHUB_USERNAME:$GITHUB_TOKEN@github.com/YOUR_GITHUB_USERNAME/web-content-downloader.git && git remote -v && git push -u origin main"
 
 [deployment]
 run = ["sh", "-c", "python web_downloader.py"]

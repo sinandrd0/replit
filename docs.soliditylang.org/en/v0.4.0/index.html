@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Solidity &mdash; Solidity 0.2.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Solidity 0.2.0 documentation" href="#"/>
+        <link rel="next" title="Introduction to Smart Contracts" href="introduction-to-smart-contracts.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://solidity.readthedocs.io/en/develop/" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'index'
+</script>
+
+<script type="text/javascript" src="_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Solidity
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                v0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installing-solidity.html">Installing Solidity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-in-depth.html">Solidity in Depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequently-asked-questions.html">Frequently Asked Questions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Solidity</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Solidity</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/ethereum/solidity/blob/v0.4.0/docs/index.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="solidity">
+<h1>Solidity<a class="headerlink" href="#solidity" title="Permalink to this headline">¶</a></h1>
+<p>Solidity is a high-level language whose syntax is similar to that of JavaScript
+and it is designed to compile to code for the Ethereum Virtual Machine.
+As you will see, it is possible to create contracts for voting,
+crowdfunding, blind auctions, multi-signature wallets and more.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The best way to try out Solidity right now is using the
+<a class="reference external" href="https://ethereum.github.io/browser-solidity/">Browser-Based Compiler</a>
+(it can take a while to load, please be patient).</p>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://ethereum.org">Ethereum</a></li>
+<li><a class="reference external" href="https://github.com/ethereum/wiki/wiki/Solidity-Changelog">Changelog</a></li>
+<li><a class="reference external" href="https://www.pivotaltracker.com/n/projects/1189488">Story Backlog</a></li>
+<li><a class="reference external" href="https://github.com/ethereum/solidity/">Source Code</a></li>
+<li><a class="reference external" href="https://ethereum.stackexchange.com/">Ethereum Stackexchange</a></li>
+<li><a class="reference external" href="https://gitter.im/ethereum/solidity/">Gitter Chat</a></li>
+</ul>
+</div>
+<div class="section" id="available-solidity-integrations">
+<h2>Available Solidity Integrations<a class="headerlink" href="#available-solidity-integrations" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://ethereum.github.io/browser-solidity/">Browser-Based Compiler</a></dt>
+<dd><p class="first last">Browser-based IDE with integrated compiler and Solidity runtime environment without server-side components.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://live.ether.camp/">Ethereum Studio</a></dt>
+<dd><p class="first last">Specialized web IDE that also provides shell access to a complete Ethereum environment.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://visualstudiogallery.msdn.microsoft.com/96221853-33c4-4531-bdd5-d2ea5acc4799/">Visual Studio Extension</a></dt>
+<dd><p class="first last">Solidity plugin for Microsoft Visual Studio that includes the Solidity compiler.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://packagecontrol.io/packages/Ethereum/">Package for SublimeText — Solidity language syntax</a></dt>
+<dd><p class="first last">Solidity syntax highlighting for SublimeText editor.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/gmtDevs/atom-ethereum-interface">Atom Ethereum interface</a></dt>
+<dd><p class="first last">Plugin for the Atom editor that features syntax highlighting, compilation and a runtime environment (requires backend node).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://atom.io/packages/linter-solidity">Atom Solidity Linter</a></dt>
+<dd><p class="first last">Plugin for the Atom editor that provides Solidity linting.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/duaraghav8/Solium/">Solium</a></dt>
+<dd><p class="first last">A commandline linter for Solidity which strictly follows the rules prescribed by the <a class="reference external" href="http://solidity.readthedocs.io/en/latest/style-guide.html">Solidity Style Guide</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/">Visual Studio Code extension</a></dt>
+<dd><p class="first last">Solidity plugin for Microsoft Visual Studio Code that includes syntax highlighting and the Solidity compiler.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/ethereum/emacs-solidity/">Emacs Solidity</a></dt>
+<dd><p class="first last">Plugin for the Emacs editor providing syntax highlighting and compilation error reporting.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/tomlion/vim-solidity/">Vim Solidity</a></dt>
+<dd><p class="first last">Plugin for the Vim editor providing syntax highlighting.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/scrooloose/syntastic">Vim Syntastic</a></dt>
+<dd><p class="first last">Plugin for the Vim editor providing compile checking.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Discontinued:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/ethereum/mix/">Mix IDE</a></dt>
+<dd><p class="first last">Qt based IDE for designing, debugging and testing solidity smart contracts.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="solidity-tools">
+<h2>Solidity Tools<a class="headerlink" href="#solidity-tools" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/nexusdev/dapple">Dapple</a></dt>
+<dd><p class="first last">Package and deployment manager for Solidity.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/raineorshine/solidity-repl">Solidity REPL</a></dt>
+<dd><p class="first last">Try Solidity instantly with a command-line Solidity console.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/raineorshine/solgraph">solgraph</a></dt>
+<dd><p class="first last">Visualize Solidity control flow and highlight potential security vulnerabilities.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://github.com/Arachnid/evmdis">evmdis</a></dt>
+<dd><p class="first last">EVM Disassembler that performs static analysis on the bytecode to provide a higher level of abstraction than raw EVM operations.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="language-documentation">
+<h2>Language Documentation<a class="headerlink" href="#language-documentation" title="Permalink to this headline">¶</a></h2>
+<p>On the next pages, we will first see a <a class="reference internal" href="introduction-to-smart-contracts.html#simple-smart-contract"><span>simple smart contract</span></a> written
+in Solidity followed by the basics about <a class="reference internal" href="introduction-to-smart-contracts.html#blockchain-basics"><span>blockchains</span></a>
+and the <a class="reference internal" href="introduction-to-smart-contracts.html#the-ethereum-virtual-machine"><span>Ethereum Virtual Machine</span></a>.</p>
+<p>The next section will explain several <em>features</em> of Solidity by giving
+useful <a class="reference internal" href="solidity-by-example.html#voting"><span>example contracts</span></a>
+Remember that you can always try out the contracts
+<a class="reference external" href="https://ethereum.github.io/browser-solidity">in your browser</a>!</p>
+<p>The last and most extensive section will cover all aspects of Solidity in depth.</p>
+<p>If you still have questions, you can try searching or asking on the
+<a class="reference external" href="https://ethereum.stackexchange.com/">Ethereum Stackexchange</a>
+site, or come to our <a class="reference external" href="https://gitter.im/ethereum/solidity/">gitter channel</a>.
+Ideas for improving Solidity or this documentation are always welcome!</p>
+<p>See also <a class="reference external" href="https://github.com/ethereum/wiki/wiki/%D0%A0%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE-%D0%BF%D0%BE-Solidity">Russian version (русский перевод)</a>.</p>
+</div>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="genindex.html"><span>Keyword Index</span></a>, <a class="reference internal" href="search.html"><span>Search Page</span></a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction-to-smart-contracts.html">Introduction to Smart Contracts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-smart-contracts.html#a-simple-smart-contract">A Simple Smart Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-smart-contracts.html#blockchain-basics">Blockchain Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction-to-smart-contracts.html#index-6">The Ethereum Virtual Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installing-solidity.html">Installing Solidity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installing-solidity.html#browser-solidity">Browser-Solidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-solidity.html#npm-node-js">npm / Node.js</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-solidity.html#binary-packages">Binary Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-solidity.html#building-from-source">Building from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-by-example.html">Solidity by Example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="solidity-by-example.html#voting">Voting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solidity-by-example.html#blind-auction">Blind Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solidity-by-example.html#safe-remote-purchase">Safe Remote Purchase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solidity-by-example.html#micropayment-channel">Micropayment Channel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solidity-in-depth.html">Solidity in Depth</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="layout-of-source-files.html">Layout of a Solidity Source File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structure-of-a-contract.html">Structure of a Contract</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units-and-global-variables.html">Units and Globally Available Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="control-structures.html">Expressions and Control Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contracts.html">Contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="miscellaneous.html">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="security-considerations.html">Security Considerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security-considerations.html#pitfalls">Pitfalls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-considerations.html#recommendations">Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security-considerations.html#formal-verification">Formal Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="style-guide.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style-guide.html#code-layout">Code Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style-guide.html#naming-conventions">Naming Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="common-patterns.html">Common Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common-patterns.html#withdrawal-from-contracts">Withdrawal from Contracts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-patterns.html#restricting-access">Restricting Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common-patterns.html#state-machine">State Machine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-report-issues">How to Report Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#workflow-for-pull-requests">Workflow for Pull Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frequently-asked-questions.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frequently-asked-questions.html#basic-questions">Basic Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequently-asked-questions.html#advanced-questions">Advanced Questions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction-to-smart-contracts.html" class="btn btn-neutral float-right" title="Introduction to Smart Contracts" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Ethereum.
+      
+        <span class="commit">
+          Revision <code>acd334c9</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: v0.4.0
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/v0.4.9/">v0.4.9</a></dd>
+        
+          <dd><a href="/en/v0.4.8/">v0.4.8</a></dd>
+        
+          <dd><a href="/en/v0.4.7/">v0.4.7</a></dd>
+        
+          <dd><a href="/en/v0.4.6/">v0.4.6</a></dd>
+        
+          <dd><a href="/en/v0.4.5/">v0.4.5</a></dd>
+        
+          <dd><a href="/en/v0.4.4/">v0.4.4</a></dd>
+        
+          <dd><a href="/en/v0.4.3/">v0.4.3</a></dd>
+        
+          <dd><a href="/en/v0.4.2/">v0.4.2</a></dd>
+        
+          <dd><a href="/en/v0.4.1/">v0.4.1</a></dd>
+        
+          <dd><a href="/en/v0.4.0/">v0.4.0</a></dd>
+        
+          <dd><a href="/en/v0.3.6/">v0.3.6</a></dd>
+        
+          <dd><a href="/en/v0.3.5/">v0.3.5</a></dd>
+        
+          <dd><a href="/en/v0.3.4/">v0.3.4</a></dd>
+        
+          <dd><a href="/en/v0.3.3/">v0.3.3</a></dd>
+        
+          <dd><a href="/en/v0.3.2/">v0.3.2</a></dd>
+        
+          <dd><a href="/en/v0.3.1/">v0.3.1</a></dd>
+        
+          <dd><a href="/en/v0.3.0/">v0.3.0</a></dd>
+        
+          <dd><a href="/en/v0.2.2/">v0.2.2</a></dd>
+        
+          <dd><a href="/en/v0.2.1/">v0.2.1</a></dd>
+        
+          <dd><a href="/en/v0.2.0/">v0.2.0</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/solidity/?fromdocs=solidity">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/solidity/?fromdocs=solidity">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
